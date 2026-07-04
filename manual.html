@@ -4,23 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guest Manual — THE 1/3rd Hakuba B</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&family=Noto+Serif+SC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+SC:wght@300;400&family=Noto+Sans+TC:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#141412;--gold:#c9a96e;--gold-light:#e8d5a3;--stone:#a09a90;--text:#f0ece4;--text-body:#d4cfc6;--border:rgba(201,169,110,0.2);--card:#1e1e1c;}
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh;}
+body{background:var(--bg);color:var(--text);font-family:'Jost','Noto Sans SC','Noto Sans TC','Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;}
 .header{background:var(--bg);border-bottom:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;justify-content:flex-end;position:sticky;top:0;z-index:10;}
-.header-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;}
+.header-brand{font-family:'Cormorant Garamond','Noto Serif SC','Noto Serif TC','Noto Serif JP',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;}
 .header-back{font-size:11px;letter-spacing:0.2em;color:var(--stone);text-decoration:none;text-transform:uppercase;}
 .header-back:hover{color:var(--gold);}
 .lang-bar{display:flex;justify-content:center;border-bottom:1px solid var(--border);}
-.lang-btn{background:none;border:none;padding:12px 24px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--stone);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.lang-btn{background:none;border:none;padding:12px 24px;font-family:'Jost','Noto Sans SC','Noto Sans TC','Noto Sans JP',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--stone);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
 .lang-btn.active{color:var(--text);border-bottom-color:var(--gold);}
 .lang-btn:hover{color:var(--text);}
 .content{display:none;max-width:680px;margin:0 auto;padding:48px 24px 80px;}
 .content.active{display:block;}
 .device-label{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.device-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,42px);font-weight:300;line-height:1.15;margin-bottom:6px;}
+.device-title{font-family:'Cormorant Garamond','Noto Serif SC','Noto Serif TC','Noto Serif JP',serif;font-size:clamp(28px,6vw,42px);font-weight:300;line-height:1.15;margin-bottom:6px;}
 .device-model{font-size:10px;letter-spacing:0.25em;color:var(--stone);text-transform:uppercase;margin-bottom:36px;}
 .steps{list-style:none;display:flex;flex-direction:column;gap:16px;}
 .steps li{position:relative;padding-left:40px;font-size:14px;line-height:1.8;color:var(--text-body);}
@@ -36,18 +36,18 @@ footer a{color:var(--gold);text-decoration:none;}
 @media(max-width:480px){.spec-grid{grid-template-columns:1fr;}.content{padding:32px 16px 60px;}}
 
 .toc{max-width:680px;margin:0 auto 8px;padding:0 24px;}
-.toc h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;color:var(--gold);margin:28px 0 10px;}
+.toc h2{font-family:'Cormorant Garamond','Noto Serif SC','Noto Serif TC','Noto Serif JP',serif;font-weight:300;font-size:22px;color:var(--gold);margin:28px 0 10px;}
 .toc-group{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--stone);margin:22px 0 8px;}
 .toc a{display:block;color:var(--text-body);text-decoration:none;font-size:15px;padding:7px 0;border-bottom:1px solid var(--border);}
 .toc a:hover{color:var(--gold);}
 .toc a .m{color:var(--stone);font-size:12px;}
 .group-head{max-width:680px;margin:0 auto;padding:56px 24px 0;}
-.group-head .g-en{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:300;}
+.group-head .g-en{font-family:'Cormorant Garamond','Noto Serif SC','Noto Serif TC','Noto Serif JP',serif;font-size:28px;color:var(--gold);font-weight:300;}
 .group-head .g-sub{font-size:11px;letter-spacing:0.25em;color:var(--stone);text-transform:uppercase;margin-top:2px;}
 .device-block{max-width:680px;margin:0 auto;padding:40px 24px 8px;border-top:1px solid var(--border);}
 .device-block:first-of-type{border-top:none;}
 .manual-title{max-width:680px;margin:0 auto;padding:56px 24px 0;}
-.manual-title .mt{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,7vw,48px);font-weight:300;line-height:1.1;}
+.manual-title .mt{font-family:'Cormorant Garamond','Noto Serif SC','Noto Serif TC','Noto Serif JP',serif;font-size:clamp(30px,7vw,48px);font-weight:300;line-height:1.1;}
 .manual-title .ms{font-size:11px;letter-spacing:0.3em;color:var(--stone);text-transform:uppercase;margin-top:10px;}
 .backtop{display:block;text-align:right;max-width:680px;margin:0 auto;padding:6px 24px 0;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;}
 .backtop:hover{color:var(--gold);}
@@ -189,7 +189,7 @@ footer a{color:var(--gold);text-decoration:none;}
   <ol class="steps">
     <li><span class="step-num">1</span>Open door: insert the key, turn right.</li>
     <li><span class="step-num">2</span>Lock door: insert the key, turn left.</li>
-  </ol></section></div><div id="ja" class="content"><div class="manual-title" id="top-ja"><div class="mt">ゲストマニュアル</div><div class="ms">THE 1/3rd Hakuba B · 長野県白馬</div></div><div class="toc"><h2>目次</h2><div class="toc-group">キッチン</div><a href="#rice-ja">炊飯器</a><a href="#toaster-ja">スチームトースター</a><a href="#microwave-ja">オーブンレンジ</a><a href="#coffee-ja">全自動コーヒーマシン</a><div class="toc-group">バス・快適</div><a href="#bath-ja">給湯器コントローラー</a><a href="#floorheating-ja">床暖房</a><a href="#ventilation-ja">バス換気乾燥機</a><a href="#speaker-ja">Bluetoothスピーカー</a><div class="toc-group">ドア・出入り</div><a href="#terrace-door-ja">テラスドア</a><a href="#front-door-ja">玄関ドア / スマートロック</a><a href="#garage-ja">ガレージドア</a></div><div class="group-head"><div class="g-en">キッチン</div></div><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="rice-ja">
+  </ol></section></div><div id="ja" lang="ja" class="content"><div class="manual-title" id="top-ja"><div class="mt">ゲストマニュアル</div><div class="ms">THE 1/3rd Hakuba B · 長野県白馬</div></div><div class="toc"><h2>目次</h2><div class="toc-group">キッチン</div><a href="#rice-ja">炊飯器</a><a href="#toaster-ja">スチームトースター</a><a href="#microwave-ja">オーブンレンジ</a><a href="#coffee-ja">全自動コーヒーマシン</a><div class="toc-group">バス・快適</div><a href="#bath-ja">給湯器コントローラー</a><a href="#floorheating-ja">床暖房</a><a href="#ventilation-ja">バス換気乾燥機</a><a href="#speaker-ja">Bluetoothスピーカー</a><div class="toc-group">ドア・出入り</div><a href="#terrace-door-ja">テラスドア</a><a href="#front-door-ja">玄関ドア / スマートロック</a><a href="#garage-ja">ガレージドア</a></div><div class="group-head"><div class="g-en">キッチン</div></div><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="rice-ja">
   <div class="device-label">キッチン</div>
   <div class="device-title">炊飯器</div>
   <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
@@ -315,7 +315,7 @@ footer a{color:var(--gold);text-decoration:none;}
   <ol class="steps">
     <li><span class="step-num">1</span>解錠：鍵を差し込み、右に回す。</li>
     <li><span class="step-num">2</span>施錠：鍵を差し込み、左に回す。</li>
-  </ol></section></div><div id="zh" class="content"><div class="manual-title" id="top-zh"><div class="mt">使用手冊</div><div class="ms">THE 1/3rd Hakuba B · 長野 白馬</div></div><div class="toc"><h2>目錄</h2><div class="toc-group">廚房</div><a href="#rice-zh">電子炊飯器</a><a href="#toaster-zh">蒸氣烤麵包機</a><a href="#microwave-zh">微波烤箱</a><a href="#coffee-zh">全自動義式咖啡機</a><div class="toc-group">衛浴 · 舒適</div><a href="#bath-zh">熱水器控制面板</a><a href="#floorheating-zh">地板暖氣</a><a href="#ventilation-zh">浴室換氣乾燥機</a><a href="#speaker-zh">藍牙喇叭</a><div class="toc-group">門 · 出入</div><a href="#terrace-door-zh">露台門</a><a href="#front-door-zh">大門 / 智慧鎖</a><a href="#garage-zh">車庫門</a></div><div class="group-head"><div class="g-en">廚房</div></div><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="rice-zh">
+  </ol></section></div><div id="zh" lang="zh-Hant" class="content"><div class="manual-title" id="top-zh"><div class="mt">使用手冊</div><div class="ms">THE 1/3rd Hakuba B · 長野 白馬</div></div><div class="toc"><h2>目錄</h2><div class="toc-group">廚房</div><a href="#rice-zh">電子炊飯器</a><a href="#toaster-zh">蒸氣烤麵包機</a><a href="#microwave-zh">微波烤箱</a><a href="#coffee-zh">全自動義式咖啡機</a><div class="toc-group">衛浴 · 舒適</div><a href="#bath-zh">熱水器控制面板</a><a href="#floorheating-zh">地板暖氣</a><a href="#ventilation-zh">浴室換氣乾燥機</a><a href="#speaker-zh">藍牙喇叭</a><div class="toc-group">門 · 出入</div><a href="#terrace-door-zh">露台門</a><a href="#front-door-zh">大門 / 智慧鎖</a><a href="#garage-zh">車庫門</a></div><div class="group-head"><div class="g-en">廚房</div></div><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="rice-zh">
   <div class="device-label">廚房</div>
   <div class="device-title">電子炊飯器</div>
   <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
@@ -441,7 +441,7 @@ footer a{color:var(--gold);text-decoration:none;}
   <ol class="steps">
     <li><span class="step-num">1</span>開鎖：插入鑰匙往右轉。</li>
     <li><span class="step-num">2</span>上鎖：插入鑰匙往左轉。</li>
-  </ol></section></div><div id="zhcn" class="content"><div class="manual-title" id="top-zh"><div class="mt">使用手册</div><div class="ms">THE 1/3rd Hakuba B · 长野 白马</div></div><div class="toc"><h2>目录</h2><div class="toc-group">厨房</div><a href="#rice-zh">电子炊饭器</a><a href="#toaster-zh">蒸气烤面包机</a><a href="#microwave-zh">微波烤箱</a><a href="#coffee-zh">全自动义式咖啡机</a><div class="toc-group">卫浴 · 舒适</div><a href="#bath-zh">热水器控制面板</a><a href="#floorheating-zh">地板暖气</a><a href="#ventilation-zh">浴室换气干燥机</a><a href="#speaker-zh">蓝牙喇叭</a><div class="toc-group">门 · 出入</div><a href="#terrace-door-zh">露台门</a><a href="#front-door-zh">大门 / 智慧锁</a><a href="#garage-zh">车库门</a></div><div class="group-head"><div class="g-en">厨房</div></div><a class="backtop" href="#top-zh">↑ 目录</a><section class="device-block" id="rice-zh">
+  </ol></section></div><div id="zhcn" lang="zh-Hans" class="content"><div class="manual-title" id="top-zh"><div class="mt">使用手册</div><div class="ms">THE 1/3rd Hakuba B · 长野 白马</div></div><div class="toc"><h2>目录</h2><div class="toc-group">厨房</div><a href="#rice-zh">电子炊饭器</a><a href="#toaster-zh">蒸气烤面包机</a><a href="#microwave-zh">微波烤箱</a><a href="#coffee-zh">全自动义式咖啡机</a><div class="toc-group">卫浴 · 舒适</div><a href="#bath-zh">热水器控制面板</a><a href="#floorheating-zh">地板暖气</a><a href="#ventilation-zh">浴室换气干燥机</a><a href="#speaker-zh">蓝牙喇叭</a><div class="toc-group">门 · 出入</div><a href="#terrace-door-zh">露台门</a><a href="#front-door-zh">大门 / 智慧锁</a><a href="#garage-zh">车库门</a></div><div class="group-head"><div class="g-en">厨房</div></div><a class="backtop" href="#top-zh">↑ 目录</a><section class="device-block" id="rice-zh">
   <div class="device-label">厨房</div>
   <div class="device-title">电子炊饭器</div>
   <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
