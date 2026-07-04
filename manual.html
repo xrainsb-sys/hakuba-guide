@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Manual — THE 1/3rd Hakuba A</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141412;--gold:#c9a96e;--gold-light:#e8d5a3;--stone:#a09a90;--text:#f0ece4;--text-body:#d4cfc6;--border:rgba(201,169,110,0.2);--card:#1e1e1c;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;min-height:100vh;}
+.header{background:var(--bg);border-bottom:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.header-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;}
+.header-back{font-size:11px;letter-spacing:0.2em;color:var(--stone);text-decoration:none;text-transform:uppercase;}
+.header-back:hover{color:var(--gold);}
+.lang-bar{display:flex;justify-content:center;border-bottom:1px solid var(--border);}
+.lang-btn{background:none;border:none;padding:12px 24px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--stone);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.lang-btn.active{color:var(--text);border-bottom-color:var(--gold);}
+.lang-btn:hover{color:var(--text);}
+.content{display:none;max-width:680px;margin:0 auto;padding:48px 24px 80px;}
+.content.active{display:block;}
+.device-label{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.device-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,42px);font-weight:300;line-height:1.15;margin-bottom:6px;}
+.device-model{font-size:10px;letter-spacing:0.25em;color:var(--stone);text-transform:uppercase;margin-bottom:36px;}
+.steps{list-style:none;display:flex;flex-direction:column;gap:16px;}
+.steps li{position:relative;padding-left:40px;font-size:14px;line-height:1.8;color:var(--text-body);}
+.step-num{position:absolute;left:0;top:2px;width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--gold);}
+.note{margin-top:24px;padding:16px 20px;background:rgba(201,169,110,0.07);border-left:2px solid var(--gold);font-size:13px;color:var(--stone);line-height:1.8;}
+.note strong{color:var(--gold-light);}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:24px;border:1px solid var(--border);}
+.spec-item{background:var(--card);padding:14px 18px;}
+.spec-key{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);margin-bottom:4px;}
+.spec-val{font-size:13px;color:var(--text);}
+footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--stone);font-size:11px;letter-spacing:0.2em;}
+footer a{color:var(--gold);text-decoration:none;}
+@media(max-width:480px){.spec-grid{grid-template-columns:1fr;}.content{padding:32px 16px 60px;}}
+
+.toc{max-width:680px;margin:0 auto 8px;padding:0 24px;}
+.toc h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;color:var(--gold);margin:28px 0 10px;}
+.toc-group{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--stone);margin:22px 0 8px;}
+.toc a{display:block;color:var(--text-body);text-decoration:none;font-size:15px;padding:7px 0;border-bottom:1px solid var(--border);}
+.toc a:hover{color:var(--gold);}
+.toc a .m{color:var(--stone);font-size:12px;}
+.group-head{max-width:680px;margin:0 auto;padding:56px 24px 0;}
+.group-head .g-en{font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--gold);font-weight:300;}
+.group-head .g-sub{font-size:11px;letter-spacing:0.25em;color:var(--stone);text-transform:uppercase;margin-top:2px;}
+.device-block{max-width:680px;margin:0 auto;padding:40px 24px 8px;border-top:1px solid var(--border);}
+.device-block:first-of-type{border-top:none;}
+.manual-title{max-width:680px;margin:0 auto;padding:56px 24px 0;}
+.manual-title .mt{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,7vw,48px);font-weight:300;line-height:1.1;}
+.manual-title .ms{font-size:11px;letter-spacing:0.3em;color:var(--stone);text-transform:uppercase;margin-top:10px;}
+.backtop{display:block;text-align:right;max-width:680px;margin:0 auto;padding:6px 24px 0;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;}
+.backtop:hover{color:var(--gold);}
+@media print{
+ body{background:#fff;color:#1a1a1a;}
+ .header,.lang-bar,.backtop,.toc a{border-color:#ddd;}
+ .lang-bar,.header{position:static;}
+ :root{--text:#1a1a1a;--text-body:#2a2a2a;--stone:#666;--gold:#9a7b3f;--border:rgba(0,0,0,0.15);--card:#f4f2ee;--bg:#fff;}
+ .content{display:none!important;}
+ .content.print-lang{display:block!important;}
+ .device-block{break-inside:avoid;}
+ .group-head{break-before:page;}
+}
+</style>
+<body><div class="header"><a href="index.html" class="header-back">← All Guides</a><div class="header-brand">THE 1/3rd Hakuba A</div></div><div class="lang-bar"><button class="lang-btn active" onclick="switchLang('en',this)">English</button><button class="lang-btn" onclick="switchLang('ja',this)">日本語</button><button class="lang-btn" onclick="switchLang('zh',this)">中文</button></div><div id="en" class="content active"><div class="manual-title" id="top-en"><div class="mt">Guest Manual</div><div class="ms">THE 1/3rd Hakuba A · Hakuba, Nagano</div></div><div class="toc"><h2>Contents</h2><div class="toc-group">Kitchen</div><a href="#rice-en">Rice Cooker</a><a href="#toaster-en">Steam Toaster</a><a href="#microwave-en">Microwave Oven</a><a href="#coffee-en">Espresso &amp; Coffee Machine</a><div class="toc-group">Bath & Comfort</div><a href="#bath-en">Hot Water &amp; Bath Controller</a><a href="#floorheating-en">Floor Heating</a><a href="#ventilation-en">Ventilation &amp; Dryer</a><a href="#speaker-en">Bluetooth Speaker</a><div class="toc-group">Doors & Access</div><a href="#terrace-door-en">Terrace Door</a><a href="#front-door-en">Front Door / Smart Lock</a><a href="#garage-en">Garage Door</a></div><div class="group-head"><div class="g-en">Kitchen</div></div><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="rice-en">
+  <div class="device-label">Kitchen</div>
+  <div class="device-title">Rice Cooker</div>
+  <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Rinse rice and place in the inner pot.</li>
+    <li><span class="step-num">2</span> Add water to the water line marked on the inner pot.</li>
+    <li><span class="step-num">3</span> <strong>Important:</strong> Pour exactly 5cc of water into the outer steam chamber (the small port around the inner pot).</li>
+    <li><span class="step-num">4</span> Close the lid and press the power button to start cooking.</li>
+    <li><span class="step-num">5</span> Cooking takes approx. 25–30 minutes. Do not open the lid during cooking.</li>
+  </ol>
+  <div class="note">⚠ Never operate without water in the outer chamber — this will damage the appliance.</div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="toaster-en">
+  <div class="device-label">Kitchen</div>
+  <div class="device-title">Steam Toaster</div>
+  <div class="device-model">BALMUDA The Toaster · K11A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Pour 5cc of water into the port on the top left of the toaster.</li>
+    <li><span class="step-num">2</span> Place food inside and close the door.</li>
+    <li><span class="step-num">3</span> Turn the left dial to select mode: <strong>Toast / Cheese Toast / Croissant / Oven / Classic</strong>.</li>
+    <li><span class="step-num">4</span> Turn the right dial to set time. The toaster starts automatically.</li>
+  </ol>
+  <div class="note">For bread: Toast mode (5 min). For pastries: Croissant mode works best.</div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="microwave-en">
+  <div class="device-label">Kitchen</div>
+  <div class="device-title">Microwave Oven</div>
+  <div class="device-model">BALMUDA The Range · K09A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Place food inside. Close the door.</li>
+    <li><span class="step-num">2</span> Turn left dial to select mode: <strong>Microwave / Oven / Grill / Combination</strong>.</li>
+    <li><span class="step-num">3</span> Turn right dial to set time or temperature.</li>
+    <li><span class="step-num">4</span> Press the dial to start.</li>
+  </ol>
+  <div class="note">Microwave: 800W. Oven max: 250°C. <strong>Do not use metal containers in microwave mode.</strong></div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="coffee-en">
+  <div class="device-label">Kitchen</div>
+  <div class="device-title">Espresso &amp; Coffee Machine</div>
+  <div class="device-model">De'Longhi · ECAM29081X</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Fill the water tank (right side) and add coffee beans to the hopper (top).</li>
+    <li><span class="step-num">2</span> Press power. Wait ~30 sec for heat-up.</li>
+    <li><span class="step-num">3</span> Lower the cup spout and place your cup underneath.</li>
+    <li><span class="step-num">4</span> Select drink: <strong>My Latte / Latte Macchiato / Cappuccino / Espresso / Specialty / Café Japonais / Hot Water</strong>.</li>
+    <li><span class="step-num">5</span> For milk drinks: remove steam cover and attach the milk container first.</li>
+    <li><span class="step-num">6</span> Adjust strength with ••• button: Mild / Standard / Strong.</li>
+  </ol>
+  <div class="note">After use, please complete the rinse cycle when prompted. Thank you for keeping it clean for the next guest.</div></section><div class="group-head"><div class="g-en">Bath & Comfort</div></div><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="bath-en">
+  <div class="device-label">Bathroom</div>
+  <div class="device-title">Hot Water &amp; Bath Controller</div>
+  <div class="device-model">NORITZ · RC-J101</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Press <strong>運転入/切</strong> to turn the system on.</li>
+    <li><span class="step-num">2</span> Press <strong>ふろ自動 (Auto Fill)</strong> to automatically fill the bathtub to the preset level and temperature.</li>
+    <li><span class="step-num">3</span> <strong>Important:</strong> Auto Fill only fills to about 60% capacity. To fill to 90%, wait until the auto fill completes, then press <strong>追いだき</strong> to continue heating and filling to your desired level.</li>
+    <li><span class="step-num">4</span> Press <strong>追いだき</strong> anytime to reheat the bath if the water has cooled.</li>
+    <li><span class="step-num">5</span> Press <strong>呼出</strong> to call between the indoor and outdoor panels.</li>
+  </ol>
+  <div class="note">Current settings: Hot water 45°C · Bath 43°C.<br>If you prefer a cooler bath, please contact your host.</div>
+
+<div style="height:1px;background:var(--border);margin:40px 0;"></div>
+<div class="device-label">Bathroom · Indoor Panel</div>
+<div class="device-title">Bath Controller (Indoor)</div>
+<div class="device-model">NORITZ · RC-J101SE · Located inside the bathroom</div>
+<ol class="steps">
+  <li><span class="step-num">1</span>Same functions as the outdoor panel — use whichever is more convenient.</li>
+  <li><span class="step-num">2</span>Press <strong>ふろ自動</strong> to start auto fill from inside the bathroom.</li>
+  <li><span class="step-num">3</span>Press <strong>追いだき</strong> to reheat the bath.</li>
+  <li><span class="step-num">4</span>Press <strong>呼出</strong> to call the outdoor panel (e.g. to let someone know the bath is ready).</li>
+  <li><span class="step-num">5</span>Press <strong>優先</strong> to give priority control to this panel.</li>
+</ol>
+<div class="note">The indoor and outdoor panels control the same system. Changes made on one panel are reflected on the other.</div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="floorheating-en">
+  <div class="device-label">Heating</div>
+  <div class="device-title">Floor Heating</div>
+  <div class="device-model">MEKAENJI Controller</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Press <strong>電源</strong> (bottom right) to turn on.</li>
+    <li><span class="step-num">2</span> Use <strong>▼▲ 温度設定</strong> to adjust temperature. Recommended: <strong>28–30°C</strong> in winter.</li>
+    <li><span class="step-num">3</span> Use <strong>エリア設定 ①②③④</strong> to select which zones to heat. You can heat all zones or individual rooms.</li>
+    <li><span class="step-num">4</span> Use <strong>タイマー予約</strong> to schedule heating in advance.</li>
+    <li><span class="step-num">5</span> Press <strong>解除</strong> to cancel a timer.</li>
+  </ol>
+  <div class="note">💡 Floor heating takes time to warm up — it is not instant like air conditioning.<br><strong>Tip:</strong> Set the timer 1 hour before returning from skiing. The floor will be warm when you arrive.</div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="ventilation-en">
+  <div class="device-label">Bathroom</div>
+  <div class="device-title">Ventilation &amp; Dryer</div>
+  <div class="device-model">Panasonic FY-13UG7E</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> <strong>浴室乾燥 (Bathroom Dry):</strong> Press after bathing to remove moisture and prevent mould.</li>
+    <li><span class="step-num">2</span> <strong>自動乾燥 / 衣類 (Laundry Dry):</strong> Hang clothes in the bathroom and press to dry.</li>
+    <li><span class="step-num">3</span> <strong>予備暖房 (Pre-heat):</strong> Press 10–15 min before bathing in winter to warm the bathroom.</li>
+    <li><span class="step-num">4</span> <strong>換気 (Ventilation):</strong> Simple ventilation — Weak/Strong selectable.</li>
+    <li><span class="step-num">5</span> <strong>涼風 (Cool breeze):</strong> Fan mode for summer use.</li>
+    <li><span class="step-num">6</span> <strong>24時間換気:</strong> Runs continuously — please leave this on at all times.</li>
+  </ol>
+  <div class="note">💡 In winter: Use 予備暖房 before bathing. The cold-to-warm temperature shock can be uncomfortable — pre-heating makes a big difference.</div></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="speaker-en">
+  <div class="device-label">Audio</div>
+  <div class="device-title">Bluetooth Speaker</div>
+  <div class="device-model">Edifier D32 · Ivory</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> Press and hold the power button (far left) to turn on.</li>
+    <li><span class="step-num">2</span> Press the Bluetooth button. Search for <strong>"Edifier D32"</strong> and connect.</li>
+    <li><span class="step-num">3</span> Use +/− to adjust volume. Play/pause button controls playback.</li>
+    <li><span class="step-num">4</span> iPhone users: AirPlay 2 is also supported — look for "Edifier D32" in AirPlay.</li>
+  </ol>
+  <div class="spec-grid">
+    <div class="spec-item"><div class="spec-key">Output</div><div class="spec-val">60W RMS</div></div>
+    <div class="spec-item"><div class="spec-key">Battery</div><div class="spec-val">Up to 11 hrs</div></div>
+    <div class="spec-item"><div class="spec-key">Connection</div><div class="spec-val">BT 5.3 / AirPlay 2 / AUX / USB-C</div></div>
+    <div class="spec-item"><div class="spec-key">Multipoint</div><div class="spec-val">2 devices simultaneously</div></div>
+  </div></section><div class="group-head"><div class="g-en">Doors & Access</div></div><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="terrace-door-en">
+  <div class="device-label">Terrace</div>
+  <div class="device-title">Terrace Door</div>
+  <div class="device-model">Key lock</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>Lock: insert the key, turn left until it clicks.</li>
+    <li><span class="step-num">2</span>Unlock: insert the key, turn right.</li>
+  </ol></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="front-door-en">
+  <div class="device-label">Entrance</div>
+  <div class="device-title">Front Door / Smart Lock</div>
+  <div class="device-model">Keypad passcode lock</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>Unlock (coming in): press START (スタート), enter passcode, press END (エンド).</li>
+    <li><span class="step-num">2</span>Lock (going out): press START, then END. No passcode.</li>
+  </ol></section><a class="backtop" href="#top-en">↑ Contents</a><section class="device-block" id="garage-en">
+  <div class="device-label">Garage</div>
+  <div class="device-title">Garage Door</div>
+  <div class="device-model">Key lock</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>Open door: insert the key, turn right.</li>
+    <li><span class="step-num">2</span>Lock door: insert the key, turn left.</li>
+  </ol></section></div><div id="ja" class="content"><div class="manual-title" id="top-ja"><div class="mt">ゲストマニュアル</div><div class="ms">THE 1/3rd Hakuba A · 長野県白馬</div></div><div class="toc"><h2>目次</h2><div class="toc-group">キッチン</div><a href="#rice-ja">炊飯器</a><a href="#toaster-ja">スチームトースター</a><a href="#microwave-ja">オーブンレンジ</a><a href="#coffee-ja">全自動コーヒーマシン</a><div class="toc-group">バス・快適</div><a href="#bath-ja">給湯器コントローラー</a><a href="#floorheating-ja">床暖房</a><a href="#ventilation-ja">バス換気乾燥機</a><a href="#speaker-ja">Bluetoothスピーカー</a><div class="toc-group">ドア・出入り</div><a href="#terrace-door-ja">テラスドア</a><a href="#front-door-ja">玄関ドア / スマートロック</a><a href="#garage-ja">ガレージドア</a></div><div class="group-head"><div class="g-en">キッチン</div></div><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="rice-ja">
+  <div class="device-label">キッチン</div>
+  <div class="device-title">炊飯器</div>
+  <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> お米をといで内釜に入れてください。</li>
+    <li><span class="step-num">2</span> 内釜の水位線に合わせて水を入れてください。</li>
+    <li><span class="step-num">3</span> <strong>重要：</strong>外釜の蒸気口に水を正確に5cc注いでください。</li>
+    <li><span class="step-num">4</span> ふたを閉め、電源ボタンを押して炊飯開始。</li>
+    <li><span class="step-num">5</span> 炊飯時間は約25〜30分です。炊飯中はふたを開けないでください。</li>
+  </ol>
+  <div class="note">⚠ 外釜に水を入れずに使用すると故障の原因になります。必ず水をお入れください。</div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="toaster-ja">
+  <div class="device-label">キッチン</div>
+  <div class="device-title">スチームトースター</div>
+  <div class="device-model">BALMUDA The Toaster · K11A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 本体左上の給水口に5ccの水を注いでください。</li>
+    <li><span class="step-num">2</span> 食材をトレーに乗せ、ドアを閉めてください。</li>
+    <li><span class="step-num">3</span> 左のダイヤルでモード選択：<strong>トースト / チーズトースト / クロワッサン / オーブン / クラシック</strong></li>
+    <li><span class="step-num">4</span> 右のダイヤルで時間を設定すると自動スタートします。</li>
+  </ol>
+  <div class="note">食パンはトーストモード（5分）、クロワッサン・デニッシュはクロワッサンモードがおすすめです。</div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="microwave-ja">
+  <div class="device-label">キッチン</div>
+  <div class="device-title">オーブンレンジ</div>
+  <div class="device-model">BALMUDA The Range · K09A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 食材を庫内に入れ、ドアを閉めてください。</li>
+    <li><span class="step-num">2</span> 左ダイヤルでモード選択：<strong>電子レンジ / オーブン / グリル / 組合せ</strong></li>
+    <li><span class="step-num">3</span> 右ダイヤルで時間または温度を設定。</li>
+    <li><span class="step-num">4</span> ダイヤルを押してスタート。</li>
+  </ol>
+  <div class="note">電子レンジ：800W。オーブン最高250℃。<strong>電子レンジモードでは金属容器不可。</strong></div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="coffee-ja">
+  <div class="device-label">キッチン</div>
+  <div class="device-title">全自動コーヒーマシン</div>
+  <div class="device-model">De'Longhi · ECAM29081X</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 右側の給水タンクに水を、上部の豆ホッパーに豆を入れてください。</li>
+    <li><span class="step-num">2</span> 電源ボタンを押し、約30秒の予熱をお待ちください。</li>
+    <li><span class="step-num">3</span> 抽出口を下げ、カップをセットしてください。</li>
+    <li><span class="step-num">4</span> メニュー選択：<strong>マイラテ / ラテマキアート / カプチーノ / エスプレッソ / スペシャルティ / カフェジャポネ / 給湯</strong></li>
+    <li><span class="step-num">5</span> ミルクメニューはスチーム管カバーを外しミルクコンテナをセット。</li>
+    <li><span class="step-num">6</span> ●●●ボタンで濃さ調整：マイルド / スタンダード / ストロング</li>
+  </ol>
+  <div class="note">使用後はすすぎを完了してからお離れください。次のゲストのためにご協力をお願いします。</div></section><div class="group-head"><div class="g-en">バス・快適</div></div><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="bath-ja">
+  <div class="device-label">バスルーム</div>
+  <div class="device-title">給湯器コントローラー</div>
+  <div class="device-model">NORITZ · RC-J101</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> <strong>運転入/切</strong>を押してシステムを起動してください。</li>
+    <li><span class="step-num">2</span> <strong>ふろ自動</strong>を押すと、設定した水位・温度まで自動で湯はりします。</li>
+    <li><span class="step-num">3</span> <strong>注意：</strong>ふろ自動では約6分目までしか湯がたまりません。9分目まで入れたい場合は、湯はり完了後に<strong>追いだき</strong>を押してください。</li>
+    <li><span class="step-num">4</span> お湯が冷めたらいつでも<strong>追いだき</strong>で再加熱できます。</li>
+    <li><span class="step-num">5</span> <strong>呼出</strong>ボタンで浴室内外のパネル間を呼び出せます。</li>
+  </ol>
+  <div class="note">現在の設定：給湯温度45℃・浴槽温度43℃。<br>温度変更をご希望の際はスタッフまでお知らせください。</div>
+
+<div style="height:1px;background:var(--border);margin:40px 0;"></div>
+<div class="device-label">バスルーム · 浴室内パネル</div>
+<div class="device-title">給湯器コントローラー（浴室内）</div>
+<div class="device-model">NORITZ · RC-J101SE · 浴室内に設置</div>
+<ol class="steps">
+  <li><span class="step-num">1</span>浴室外のパネルと同じ機能です。どちらからでも操作できます。</li>
+  <li><span class="step-num">2</span><strong>ふろ自動</strong>：浴室内から湯はりを開始できます。</li>
+  <li><span class="step-num">3</span><strong>追いだき</strong>：浴槽内から再加熱できます。</li>
+  <li><span class="step-num">4</span>呼出ボタンで浴室外のパネルを呼び出せます（お湯が沸いたことを知らせるなど）。</li>
+  <li><span class="step-num">5</span><strong>優先</strong>：このパネルを優先操作パネルに設定します。</li>
+</ol>
+<div class="note">浴室内外のパネルは同じシステムを操作しています。一方で変更した設定はもう一方にも反映されます。</div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="floorheating-ja">
+  <div class="device-label">暖房</div>
+  <div class="device-title">床暖房</div>
+  <div class="device-model">MEKAENJIコントローラー</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 右下の<strong>電源</strong>ボタンを押して起動。</li>
+    <li><span class="step-num">2</span> <strong>▼▲ 温度設定</strong>で温度調整。冬季は<strong>28〜30℃</strong>がおすすめです。</li>
+    <li><span class="step-num">3</span> <strong>エリア設定 ①②③④</strong>で暖めるゾーンを選択。全室または個別に選択できます。</li>
+    <li><span class="step-num">4</span> <strong>タイマー予約</strong>で事前に運転開始時刻を設定できます。</li>
+    <li><span class="step-num">5</span> <strong>解除</strong>でタイマーをキャンセルできます。</li>
+  </ol>
+  <div class="note">💡 床暖房はエアコンと違い温まるまでに時間がかかります。<br><strong>ヒント：</strong>スキーからお戻りの1時間前にタイマーをセットすると、帰宅時に床が暖かくなっています。</div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="ventilation-ja">
+  <div class="device-label">バスルーム</div>
+  <div class="device-title">バス換気乾燥機</div>
+  <div class="device-model">Panasonic FY-13UG7E</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> <strong>浴室乾燥：</strong>入浴後に押すと浴室の湿気を除去します。カビ予防に効果的です。</li>
+    <li><span class="step-num">2</span> <strong>自動乾燥（衣類）：</strong>浴室に洗濯物を干してボタンを押すと乾燥できます。</li>
+    <li><span class="step-num">3</span> <strong>予備暖房：</strong>冬季は入浴の10〜15分前に押して浴室を暖めてください。</li>
+    <li><span class="step-num">4</span> <strong>換気：</strong>通常換気。弱/強を選択できます。</li>
+    <li><span class="step-num">5</span> <strong>涼風：</strong>夏季の送風モードです。</li>
+    <li><span class="step-num">6</span> <strong>24時間換気：</strong>常時運転を推奨します。停止させないでください。</li>
+  </ol>
+  <div class="note">💡 冬季のヒートショック予防のため、入浴前の予備暖房をおすすめします。</div></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="speaker-ja">
+  <div class="device-label">オーディオ</div>
+  <div class="device-title">Bluetoothスピーカー</div>
+  <div class="device-model">Edifier D32 · Ivory</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 一番左の電源ボタンを長押しして電源ON。</li>
+    <li><span class="step-num">2</span> Bluetoothボタンを押してペアリングモードに。<strong>「Edifier D32」</strong>を選択して接続。</li>
+    <li><span class="step-num">3</span> +/−で音量調整。再生/一時停止ボタンで操作。</li>
+    <li><span class="step-num">4</span> iPhoneはAirPlay 2にも対応。AirPlayメニューから「Edifier D32」を選択。</li>
+  </ol>
+  <div class="spec-grid">
+    <div class="spec-item"><div class="spec-key">出力</div><div class="spec-val">60W RMS</div></div>
+    <div class="spec-item"><div class="spec-key">バッテリー</div><div class="spec-val">最大11時間</div></div>
+    <div class="spec-item"><div class="spec-key">接続</div><div class="spec-val">BT 5.3 / AirPlay 2 / AUX / USB-C</div></div>
+    <div class="spec-item"><div class="spec-key">マルチポイント</div><div class="spec-val">2台同時接続可</div></div>
+  </div></section><div class="group-head"><div class="g-en">ドア・出入り</div></div><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="terrace-door-ja">
+  <div class="device-label">テラス</div>
+  <div class="device-title">テラスドア</div>
+  <div class="device-model">鍵式ロック</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>施錠：鍵を差し込み、左に回す。「カチッ」で完了。</li>
+    <li><span class="step-num">2</span>解錠：鍵を差し込み、右に回す。</li>
+  </ol></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="front-door-ja">
+  <div class="device-label">玄関</div>
+  <div class="device-title">玄関ドア / スマートロック</div>
+  <div class="device-model">暗証番号式ロック</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>解錠（入室時）：「スタート」→暗証番号→「エンド」。</li>
+    <li><span class="step-num">2</span>施錠（外出時）：「スタート」→「エンド」。暗証番号不要。</li>
+  </ol></section><a class="backtop" href="#top-ja">↑ 目次</a><section class="device-block" id="garage-ja">
+  <div class="device-label">ガレージ</div>
+  <div class="device-title">ガレージドア</div>
+  <div class="device-model">鍵式ロック</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>解錠：鍵を差し込み、右に回す。</li>
+    <li><span class="step-num">2</span>施錠：鍵を差し込み、左に回す。</li>
+  </ol></section></div><div id="zh" class="content"><div class="manual-title" id="top-zh"><div class="mt">使用手冊</div><div class="ms">THE 1/3rd Hakuba A · 長野 白馬</div></div><div class="toc"><h2>目錄</h2><div class="toc-group">廚房</div><a href="#rice-zh">電子炊飯器</a><a href="#toaster-zh">蒸氣烤麵包機</a><a href="#microwave-zh">微波烤箱</a><a href="#coffee-zh">全自動義式咖啡機</a><div class="toc-group">衛浴 · 舒適</div><a href="#bath-zh">熱水器控制面板</a><a href="#floorheating-zh">地板暖氣</a><a href="#ventilation-zh">浴室換氣乾燥機</a><a href="#speaker-zh">藍牙喇叭</a><div class="toc-group">門 · 出入</div><a href="#terrace-door-zh">露台門</a><a href="#front-door-zh">大門 / 智慧鎖</a><a href="#garage-zh">車庫門</a></div><div class="group-head"><div class="g-en">廚房</div></div><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="rice-zh">
+  <div class="device-label">廚房</div>
+  <div class="device-title">電子炊飯器</div>
+  <div class="device-model">BALMUDA The Gohan · K08A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 洗米後放入內鍋。</li>
+    <li><span class="step-num">2</span> 依內鍋刻度加水。</li>
+    <li><span class="step-num">3</span> <strong>重要：</strong>在外釜蒸氣口注入正好 5cc 的水。</li>
+    <li><span class="step-num">4</span> 蓋上鍋蓋，按電源鍵開始炊煮。</li>
+    <li><span class="step-num">5</span> 炊煮時間約 25–30 分鐘，過程中請勿打開鍋蓋。</li>
+  </ol>
+  <div class="note">⚠ 外釜未加水即啟動會損壞機器，請務必確認加水。</div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="toaster-zh">
+  <div class="device-label">廚房</div>
+  <div class="device-title">蒸氣烤麵包機</div>
+  <div class="device-model">BALMUDA The Toaster · K11A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 在機器左上方注水口倒入 5cc 的水。</li>
+    <li><span class="step-num">2</span> 將食材放入，關上門。</li>
+    <li><span class="step-num">3</span> 左側旋鈕選擇模式：<strong>吐司 / 起司吐司 / 可頌 / 烤箱 / Classic</strong></li>
+    <li><span class="step-num">4</span> 右側旋鈕設定時間，機器自動啟動。</li>
+  </ol>
+  <div class="note">吐司建議 Toast 模式（5分鐘）；可頌請選 Croissant 模式。</div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="microwave-zh">
+  <div class="device-label">廚房</div>
+  <div class="device-title">微波烤箱</div>
+  <div class="device-model">BALMUDA The Range · K09A-BK</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 將食材放入，關上門。</li>
+    <li><span class="step-num">2</span> 左側旋鈕選擇模式：<strong>微波 / 烤箱 / 燒烤 / 複合</strong></li>
+    <li><span class="step-num">3</span> 右側旋鈕設定時間或溫度。</li>
+    <li><span class="step-num">4</span> 按下旋鈕啟動。</li>
+  </ol>
+  <div class="note">微波：800W。烤箱最高250℃。<strong>微波模式請勿使用金屬容器。</strong></div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="coffee-zh">
+  <div class="device-label">廚房</div>
+  <div class="device-title">全自動義式咖啡機</div>
+  <div class="device-model">De'Longhi · ECAM29081X</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 確認右側水箱有水，上方豆槽放入咖啡豆。</li>
+    <li><span class="step-num">2</span> 按電源鍵，等待預熱約 30 秒。</li>
+    <li><span class="step-num">3</span> 將出水口往下拉，放好杯子。</li>
+    <li><span class="step-num">4</span> 選擇飲品：<strong>拿鐵 / 拿鐵瑪奇朵 / 卡布奇諾 / 濃縮咖啡 / 特調 / 日式咖啡 / 熱水</strong></li>
+    <li><span class="step-num">5</span> 牛奶類飲品需移除蒸氣管蓋，安裝牛奶容器。</li>
+    <li><span class="step-num">6</span> 用 ●●● 鍵調整濃度：淡 / 標準 / 濃。</li>
+  </ol>
+  <div class="note">使用後機器會提示沖洗，請完成後再離開，感謝您為下位旅客保持清潔。</div></section><div class="group-head"><div class="g-en">衛浴 · 舒適</div></div><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="bath-zh">
+  <div class="device-label">浴室</div>
+  <div class="device-title">熱水器控制面板</div>
+  <div class="device-model">NORITZ · RC-J101</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 按 <strong>運転入/切</strong> 啟動系統。</li>
+    <li><span class="step-num">2</span> 按 <strong>ふろ自動（自動注水）</strong>，自動注水至設定水位與溫度。</li>
+    <li><span class="step-num">3</span> <strong>注意：</strong>自動模式只會注水至約六分滿。若想放到九分滿，請等自動注水完成後，再按 <strong>追いだき</strong> 繼續加熱加水至理想水位。</li>
+    <li><span class="step-num">4</span> 浴缸水溫下降時，隨時可按 <strong>追いだき</strong> 重新加熱。</li>
+    <li><span class="step-num">5</span> 按 <strong>呼出</strong> 可在浴室內外面板之間互相呼叫。</li>
+  </ol>
+  <div class="note">目前設定：熱水 45℃ · 浴缸 43℃。<br>如需調整溫度，歡迎告知我們。</div>
+
+<div style="height:1px;background:var(--border);margin:40px 0;"></div>
+<div class="device-label">浴室 · 室內面板</div>
+<div class="device-title">熱水器控制面板（浴室內）</div>
+<div class="device-model">NORITZ · RC-J101SE · 位於浴室內</div>
+<ol class="steps">
+  <li><span class="step-num">1</span>與浴室外面板功能相同，兩個都可以操作。</li>
+  <li><span class="step-num">2</span>按 <strong>ふろ自動</strong>：在浴室內直接啟動自動注水。</li>
+  <li><span class="step-num">3</span>按 <strong>追いだき</strong>：在浴室內重新加熱浴缸水。</li>
+  <li><span class="step-num">4</span>按 <strong>呼出</strong>：呼叫浴室外面板（例如通知浴缸已放好水）。</li>
+  <li><span class="step-num">5</span>按 <strong>優先</strong>：將此面板設為優先控制面板。</li>
+</ol>
+<div class="note">浴室內外兩個面板控制同一套系統，在其中一個面板做的設定會同步反映在另一個面板上。</div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="floorheating-zh">
+  <div class="device-label">暖氣</div>
+  <div class="device-title">地板暖氣</div>
+  <div class="device-model">MEKAENJI 控制器</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 按右下方 <strong>電源</strong> 鍵開啟。</li>
+    <li><span class="step-num">2</span> 用 <strong>▼▲ 溫度設定</strong> 調整溫度，冬天建議設定 <strong>28–30℃</strong>。</li>
+    <li><span class="step-num">3</span> 用 <strong>エリア設定 ①②③④</strong> 選擇要加熱的分區，可全區或單獨開啟。</li>
+    <li><span class="step-num">4</span> 用 <strong>タイマー予約</strong> 提前設定開啟時間。</li>
+    <li><span class="step-num">5</span> 按 <strong>解除</strong> 可取消定時。</li>
+  </ol>
+  <div class="note">💡 地暖不像冷氣即熱，需要時間升溫。<br><strong>建議：</strong>滑雪回來前 1 小時設定定時，回到 Villa 時地板就已溫熱。</div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="ventilation-zh">
+  <div class="device-label">浴室</div>
+  <div class="device-title">浴室換氣乾燥機</div>
+  <div class="device-model">Panasonic FY-13UG7E</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> <strong>浴室乾燥：</strong>沐浴後按下，去除浴室濕氣，預防霉菌。</li>
+    <li><span class="step-num">2</span> <strong>自動乾燥（衣類）：</strong>在浴室掛上衣物後按下，可烘乾衣物。</li>
+    <li><span class="step-num">3</span> <strong>予備暖房：</strong>冬天入浴前 10–15 分鐘按下，預熱浴室。</li>
+    <li><span class="step-num">4</span> <strong>換気：</strong>一般換氣，可選弱/強。</li>
+    <li><span class="step-num">5</span> <strong>涼風：</strong>夏天送涼風模式。</li>
+    <li><span class="step-num">6</span> <strong>24時間換気：</strong>建議保持常時運轉，請勿關閉。</li>
+  </ol>
+  <div class="note">💡 冬天建議入浴前使用予備暖房預熱浴室，白馬室外氣溫低，預熱能大幅提升舒適度。</div></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="speaker-zh">
+  <div class="device-label">音響</div>
+  <div class="device-title">藍牙喇叭</div>
+  <div class="device-model">Edifier D32 · Ivory</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span> 長按最左邊電源鍵開機。</li>
+    <li><span class="step-num">2</span> 按藍牙鍵進入配對模式，搜尋並連接 <strong>「Edifier D32」</strong>。</li>
+    <li><span class="step-num">3</span> +/− 調整音量，播放/暫停鍵控制播放。</li>
+    <li><span class="step-num">4</span> iPhone 用戶可使用 AirPlay 2，在 AirPlay 選單中選擇「Edifier D32」。</li>
+  </ol>
+  <div class="spec-grid">
+    <div class="spec-item"><div class="spec-key">輸出功率</div><div class="spec-val">60W RMS</div></div>
+    <div class="spec-item"><div class="spec-key">電池</div><div class="spec-val">最長 11 小時</div></div>
+    <div class="spec-item"><div class="spec-key">連線方式</div><div class="spec-val">BT 5.3 / AirPlay 2 / AUX / USB-C</div></div>
+    <div class="spec-item"><div class="spec-key">多點連線</div><div class="spec-val">可同時連接 2 台</div></div>
+  </div></section><div class="group-head"><div class="g-en">門 · 出入</div></div><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="terrace-door-zh">
+  <div class="device-label">露台</div>
+  <div class="device-title">露台門</div>
+  <div class="device-model">鑰匙鎖</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>上鎖：插入鑰匙往左轉，聽到「喀嚓」即完成。</li>
+    <li><span class="step-num">2</span>開鎖：插入鑰匙往右轉。</li>
+  </ol></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="front-door-zh">
+  <div class="device-label">大門</div>
+  <div class="device-title">大門 / 智慧鎖</div>
+  <div class="device-model">密碼鍵盤鎖</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>開鎖（進門）：按「スタート」→輸入密碼→按「エンド」。</li>
+    <li><span class="step-num">2</span>上鎖（外出）：按「スタート」→按「エンド」，不需密碼。</li>
+  </ol></section><a class="backtop" href="#top-zh">↑ 目錄</a><section class="device-block" id="garage-zh">
+  <div class="device-label">車庫</div>
+  <div class="device-title">車庫門</div>
+  <div class="device-model">鑰匙鎖</div>
+  <ol class="steps">
+    <li><span class="step-num">1</span>開鎖：插入鑰匙往右轉。</li>
+    <li><span class="step-num">2</span>上鎖：插入鑰匙往左轉。</li>
+  </ol></section></div><footer><a href="index.html">← Back to all guides</a><br><br>The THE 1/3rd Hakuba A · Hakuba, Nagano</footer><script>
+function switchLang(lang, btn){
+ document.querySelectorAll('.content').forEach(el=>el.classList.remove('active'));
+ document.querySelectorAll('.lang-btn').forEach(el=>el.classList.remove('active'));
+ document.getElementById(lang).classList.add('active');
+ btn.classList.add('active');
+ window.scrollTo(0,0);
+}
+</script></body></html>
