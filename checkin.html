@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Check-in — THE 1/3rd Hakuba B</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141412;--gold:#c9a96e;--gold-light:#e8d5a3;--stone:#a09a90;--text:#f0ece4;--text-body:#d4cfc6;--border:rgba(201,169,110,0.22);--card:#1e1e1c;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Jost','Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;}
+.header{background:var(--bg);border-bottom:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:10;}
+.header-brand{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.08em;}
+.wrap{max-width:560px;margin:0 auto;padding:52px 24px 90px;}
+.eyebrow{font-size:10px;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:14px;}
+.title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,7vw,46px);line-height:1.1;text-align:center;margin-bottom:12px;}
+.intro{text-align:center;color:var(--stone);font-size:13px;line-height:1.9;max-width:420px;margin:0 auto 8px;}
+.intro .ja{display:block;font-family:'Noto Sans JP',sans-serif;font-size:12px;margin-top:2px;}
+.divider{width:40px;height:1px;background:var(--gold);margin:30px auto 40px;opacity:0.6;}
+form{display:flex;flex-direction:column;gap:30px;}
+.field label{display:block;font-size:12px;letter-spacing:0.06em;color:var(--text);margin-bottom:2px;}
+.field label .ja{color:var(--stone);font-family:'Noto Sans JP',sans-serif;font-size:11px;}
+.field label .req{color:var(--gold);margin-left:4px;}
+.field input[type=text],.field input[type=tel]{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);font-family:inherit;font-weight:300;font-size:15px;padding:10px 2px;transition:border-color .25s;}
+.field input::placeholder{color:#6b665e;font-size:13px;}
+.field input:focus{outline:none;border-bottom-color:var(--gold);}
+.file-field{border:1px dashed var(--border);border-radius:2px;padding:22px;text-align:center;cursor:pointer;transition:border-color .25s,background .25s;}
+.file-field:hover{border-color:var(--gold);background:rgba(201,169,110,0.04);}
+.file-field .ic{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);}
+.file-field .t{font-size:12px;color:var(--text);margin-top:6px;}
+.file-field .s{font-size:11px;color:var(--stone);margin-top:3px;font-family:'Noto Sans JP',sans-serif;}
+.file-field.filled{border-style:solid;border-color:var(--gold);}
+.file-field input{display:none;}
+.submit{margin-top:12px;background:var(--gold);color:#141412;border:none;padding:16px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:background .25s;}
+.submit:hover{background:var(--gold-light);}
+.consent{font-size:11px;color:var(--stone);line-height:1.8;text-align:center;}
+footer{text-align:center;padding:36px 24px;border-top:1px solid var(--border);color:var(--stone);font-size:11px;letter-spacing:0.2em;}
+/* thank you */
+.thanks{display:none;text-align:center;padding:60px 10px;}
+.thanks.show{display:block;}
+.thanks .mark{font-family:'Cormorant Garamond',serif;font-size:56px;color:var(--gold);line-height:1;}
+.thanks h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:34px;margin:18px 0 10px;}
+.thanks p{color:var(--stone);font-size:13px;line-height:1.9;}
+.thanks p .ja{display:block;font-family:'Noto Sans JP',sans-serif;font-size:12px;}
+@media(max-width:480px){.wrap{padding:40px 18px 70px;}}
+</style>
+</head>
+<body>
+<div class="header"><div class="header-brand">THE 1/3rd Hakuba B</div></div>
+<div class="wrap">
+  <div id="formview">
+    <div class="eyebrow">Arrival</div>
+    <h1 class="title">Guest Check-in</h1>
+    <p class="intro">Welcome to your villa in Hakuba. Please complete your registration before arrival.
+      <span class="ja">白馬のヴィラへようこそ。ご到着前にご記入ください。</span></p>
+    <div class="divider"></div>
+
+    <form id="checkinForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfKR98Z3HLANp9Ak0f-g7L8OiFXrN_rLExyyNDwzw9eyaSW2g/formResponse" method="POST" target="hidden_iframe">
+      <div class="field">
+        <label>Full Name <span class="ja">/ 氏名</span><span class="req">*</span></label>
+        <input type="text" name="entry.1376044582" required placeholder="e.g. Taro Yamada">
+      </div>
+      <div class="field">
+        <label>Nationality <span class="ja">/ 国籍</span><span class="req">*</span></label>
+        <input type="text" name="entry.1548456893" required placeholder="e.g. Japan / Taiwan">
+      </div>
+      <div class="field">
+        <label>ID or Passport No. <span class="ja">/ 旅券番号</span><span class="req">*</span></label>
+        <input type="text" name="entry.1115698980" required placeholder="Passport or ID number">
+      </div>
+      <div class="field">
+        <label>Phone Number <span class="ja">/ 電話番号</span><span class="req">*</span></label>
+        <input type="tel" name="entry.1446289194" required placeholder="+81 ...">
+      </div>
+      <div class="field">
+        <label>Address <span class="ja">/ 住所</span></label>
+        <input type="text" name="entry.1939527725" placeholder="Home address (optional)">
+      </div>
+      <div class="field">
+        <label>Passport / ID Photo <span class="ja">/ 護照・身分証写真</span><span class="req">*</span></label>
+        <label class="file-field" id="fileField">
+          <div class="ic">&#43;</div>
+          <div class="t" id="fileText">Upload a photo of your passport / ID</div>
+          <div class="s">パスポート・身分証の写真をアップロード</div>
+          <input type="file" id="photo" accept="image/*" capture="environment">
+        </label>
+      </div>
+      <button type="submit" class="submit">Complete Check-in &nbsp;·&nbsp; 登録する</button>
+      <p class="consent">Your details are used solely for lodging registration as required by Japanese law.<br>ご登録情報は宿泊者名簿の作成のみに使用されます。</p>
+    </form>
+  </div>
+
+  <div class="thanks" id="thanks">
+    <div class="mark">&#10003;</div>
+    <h2>Thank You</h2>
+    <p>Your check-in is complete. We look forward to welcoming you.
+      <span class="ja">ご登録ありがとうございます。お会いできるのを楽しみにしております。</span></p>
+  </div>
+</div>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+<footer>THE 1/3rd Hakuba B &nbsp;·&nbsp; Hakuba, Nagano, Japan</footer>
+<script>
+  var ff=document.getElementById('fileField'),ft=document.getElementById('fileText'),ph=document.getElementById('photo');
+  ph.addEventListener('change',function(){ if(ph.files.length){ ff.classList.add('filled'); ft.textContent=ph.files[0].name; }});
+  var submitted=false;
+  document.getElementById('checkinForm').addEventListener('submit',function(){ submitted=true; });
+  document.getElementById('hidden_iframe').addEventListener('load',function(){
+    if(submitted){ document.getElementById('formview').style.display='none'; document.getElementById('thanks').classList.add('show'); window.scrollTo(0,0); }
+  });
+</script>
+</body>
+</html>
